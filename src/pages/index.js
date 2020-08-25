@@ -36,6 +36,7 @@ export default function Home({ data }) {
   console.log(data)
   return (
     <Layout>
+      
       <div>
         <h1
           css={css`
@@ -75,6 +76,7 @@ export default function Home({ data }) {
         ))}
       </div>
     </Layout>
+    
   )
 }
 
