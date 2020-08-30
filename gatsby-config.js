@@ -10,7 +10,27 @@ module.exports = {
     title: `Bill's Website`,
   },
   plugins: [
-    
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+          plugins: [
+              // Make CSS grids available
+              // without options
+              
+              // or
+              // with options
+              {
+                  resolve: "gatsby-remark-images-grid",
+                  options: {
+                      className: "myCustomClassName",
+                      gridGap: "20px",
+                      margin: "20px auto",
+                  },
+              },
+          ],
+      },
+    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,13 +38,36 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/assets/images`,
+      },
+    },
+    
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
       },
     },
   ],

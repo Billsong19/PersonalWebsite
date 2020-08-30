@@ -21,11 +21,9 @@ import Layout from "../components/layout"
 export default function About({ data }) {
   return (
     <Layout>
-      <h1>About {data.site.siteMetadata.title}</h1>
-      <p>
-        We're the only site running on your computer dedicated to showing the
-        best photos and videos of pandas eating lots of food.
-      </p>
+      <h1>About Me</h1>
+      <div>{"Welcome to my site, I'm Bill Song. I'm a Software Engineering student at the University of Auckland\
+, and I made this website to give an overview of some the programming and photography I get up to in my spare time."}</div>
     </Layout>
   )
 }

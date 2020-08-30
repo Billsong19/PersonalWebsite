@@ -1,32 +1,5 @@
-// import React from "react"
-// import { Link } from "gatsby"
-// const ListLink = props => (
-//   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-//     <Link to={props.to}>{props.children}</Link>
-//   </li>
-// )
-
-// export default function Layout({ children }) {
-//   return (
-//     <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
-//             <header style={{ marginBottom: `1.5rem` }}>
-//         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-//           <h3 style={{ display: `inline` }}>MySweetSite</h3>
-//         </Link>
-//         <ul style={{ listStyle: `none`, float: `right` }}>
-//           <ListLink to="/">Home</ListLink>
-//           <ListLink to="/about/">About</ListLink>
-//           <ListLink to="/contact/">Contact</ListLink>
-//         </ul>
-//       </header>
-//       {children}
-//     </div>
-//   )
-// }
-
 import React from "react"
 import { css } from "@emotion/core"
-// import { Link } from "gatsby"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 import { rhythm } from "../utils/typography"
@@ -46,16 +19,17 @@ export default function Layout({ children }) {
   )
 
   return (
+    
     <div
       css={css`
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 1000px;
         padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
+        padding-top: ${rhythm(1)};
       `}
     >
       <Link to={`/`}>
-        <h3
+        <h1
           css={css`
             margin-bottom: ${rhythm(2)};
             display: inline-block;
@@ -63,17 +37,43 @@ export default function Layout({ children }) {
           `}
         >
           {data.site.siteMetadata.title}
-        </h3>
+        </h1>
       </Link>
-      <Link
-        to={`/about/`}
-        css={css`
-          float: right;
-        `}
-      >
+
+      <Link to={`/about/`}>
+        <h2
+          css={css`
+            float: right;
+          `}
+        >
         About
+        </h2>
+      </Link>
+      
+      <Link to={`/projects/`}>
+        <h2
+          css={css`
+            float: right;
+            margin-right: 20px;
+          `}
+        >
+        Projects
+        </h2>
+      </Link>
+
+      <Link to={`/photography/`}>
+        <h2
+          css={css`
+            float: right;
+            margin-right: 20px;
+          `}
+        >
+        Photography
+        </h2>
       </Link>
       {children}
+
+      {/* add social media footer*/}
     </div>
   )
 }

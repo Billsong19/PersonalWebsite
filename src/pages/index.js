@@ -1,31 +1,3 @@
-// import React from "react"
-// import { Link } from "gatsby"
-// import Header from "../components/header"
-// export default function Home() {
-//   return (
-//     <div style={{ color: `purple` }}>
-//             <h1>Hello Gatsby!</h1>
-//             <p>What a world.</p>
-//             {/* <Link to="/contact/">Contact</Link>
-//             <img src="https://source.unsplash.com/random/400x200" alt="" /> */}
-//             </div>
-//     );
-// }
-
-// import React from "react"
-// import Layout from "../components/layout"
-// export default function Home() {
-//   return (
-//     <Layout>
-//       <h1>Hi! I'm building a fake Gatsby site as part of a tutorial!</h1>
-//       <p>
-//         What do I like to do? Lots of course but definitely enjoy building
-//         websites.
-//       </p>
-//     </Layout>
-//   )
-// }
-
 import React from "react"
 import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
@@ -37,7 +9,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       
-      <div>
+     {/*  <div>
         <h1
           css={css`
             display: inline-block;
@@ -74,8 +46,11 @@ export default function Home({ data }) {
             </Link>
           </div>
         ))}
-      </div>
-    </Layout>
+      </div> */}
+      <div>
+        Hi, this site is a work in progress: the pages "About" and "Photography" are semi-functional :)) enjoy.
+        </div>
+      </Layout>
     
   )
 }
