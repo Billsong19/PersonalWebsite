@@ -48,8 +48,8 @@ export default function Home({ data }) {
         ))}
       </div> */}
       <div>
-        Hi, this site is a work in progress: the pages "About" and "Photography" are semi-functional :)) enjoy.
-        </div>
+        Welcome to my site homie. This site is a work in progress: Follow the header links to see what I'm up to.
+      </div>
       </Layout>
     
   )
