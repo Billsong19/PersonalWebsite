@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import { css } from "@emotion/core"
+import { rhythm } from "../utils/typography"
 
 export default function Photography({data}) {
     console.log(data)
@@ -27,6 +29,7 @@ export default function Photography({data}) {
             <div>
                 {data.allFile.edges.map(({ node }, index) => (
               <Img
+              
                 key={node.childImageSharp.fluid.src}
                 fluid={node.childImageSharp.fluid}
                 style={{ margin: '3rem 0' }}
