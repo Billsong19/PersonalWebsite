@@ -35,30 +35,35 @@ export default function Photography({data}) {
      
             <div
                 css={css`
-                column-count: 3;
-                
-                @media (max-width: 800px) {
-                    column-count: 2;
+                  column-count: 3;
+                  height: 100%;
+                  overflow:visible;
+                  @media (max-width: 800px) {
+                      column-count: 2;
 
-                }
-                @media (max-width: 600px) {
-                    column-count: 1;
-                }
+                  }
+                  @media (max-width: 600px) {
+                      column-count: 1;
+                  }
                 `}>
                     
                 <SRLWrapper options={options}>
-                {data.allFile.edges.map(({ node }, index) => (
-              <Img
-                
-                key={node.childImageSharp.fluid.src}
-                fluid={node.childImageSharp.fluid}
-                
-                css={css`
-                    margin-bottom: 1em;
-                `}
-              />
-            ))}
-            </SRLWrapper>
+                    {data.allFile.edges.map(({ node }, index) => (
+                      <Img
+                        
+                        key={node.childImageSharp.fluid.src}
+                        fluid={node.childImageSharp.fluid}
+                        
+                        css={css`
+                            margin-bottom: 1em;
+                            -webkit-column-break-inside: avoid;
+                            page-break-inside: avoid;
+                            break-inside: avoid;
+                        }
+                        `}
+                      />
+                    ))}
+                </SRLWrapper>
             </div>
              
             </SimpleReactLightbox>
@@ -105,7 +110,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid (maxWidth: 4160, quality: 100){
+            fluid (maxWidth: 2000, quality: 80 ){
               aspectRatio
               originalName
               ...GatsbyImageSharpFluid
