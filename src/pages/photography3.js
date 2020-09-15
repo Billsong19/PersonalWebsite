@@ -4,15 +4,11 @@ import Layout from "../components/layout"
 import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
-import { SRLWrapper } from "simple-react-lightbox";
-import SimpleReactLightbox from "simple-react-lightbox";
 
 export default function Photography({data}) {
     console.log(data)
     return (
-        
         <Layout>
-            <SimpleReactLightbox>
             <h1>
                 Hi, these are my photos
             </h1>
@@ -30,51 +26,29 @@ export default function Photography({data}) {
                 fluid={data.file.childImageSharp.fluid}
                 alt="Ngaruhoe"
             /> */}
-           
-      
-     
-            <div
-                css={css`
-                column-count: 3;
-                
-                @media (max-width: 800px) {
-                    column-count: 2;
-
-                }
-                @media (max-width: 600px) {
-                    column-count: 1;
-                }
-                `}>
-                    
-                <SRLWrapper options={options}>
+            <div>
                 {data.allFile.edges.map(({ node }, index) => (
               <Img
-                
+                css={css`
+                    margin: 0 auto;
+                    max-height: 200px;
+                    padding: ${rhythm(2)};
+                    padding-top: ${rhythm(1)};
+                    padding-bottom: ${rhythm(1)};
+                `}
+              
                 key={node.childImageSharp.fluid.src}
                 fluid={node.childImageSharp.fluid}
-                
-                css={css`
-                    margin-bottom: 1em;
-                `}
+                style={{ margin: '3rem 0'}}
               />
             ))}
-            </SRLWrapper>
             </div>
-             
-            </SimpleReactLightbox>
+            
+                
         </Layout>
     ) 
 }
 
-const options = {
-    thumbnails: {
-      thumbnailsPosition: 'left',
-      thumbnailsSize: ['100px', '80px']
-    },
-    settings: {
-        overlayColor: 'rgba(250,235,215,0.9)'
-    }
-}
 /* export const query = graphql`
     allFile(filter: {extension: {regex: "/(jpg)/"}, relativeDirectory: {}}) {
       edges {
@@ -105,7 +79,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid (maxWidth: 4160, quality: 100){
+            fluid (maxHeight: 2000, quality: 100){
               aspectRatio
               originalName
               ...GatsbyImageSharpFluid

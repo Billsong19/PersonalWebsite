@@ -7,6 +7,12 @@ import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
 import { rhythm } from "../utils/typography"
 
+const ListLink = props => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link to={props.to}>{props.children}</Link>
+  </li>
+)
+
 export default function Layout({ children }) {
   
   const data = useStaticQuery(
@@ -26,48 +32,18 @@ export default function Layout({ children }) {
     <div
       css={css`
         margin: 0 auto;
-        max-width: 1000px;
-        padding: ${rhythm(2)};
+
+        padding: ${rhythm(0.5)};
         padding-top: ${rhythm(1)};
-        padding-botom: ${rhythm(1)};
+        
       `}
     >
-      
 
-      <Link to={`/about/`}>
-        <h2
-          css={css`
-            float: right;
-          `}
-        >
-        About
-        </h2>
-      </Link>
-      
-      <Link to={`/projects/`}>
-        <h2
-          css={css`
-            float: right;
-            margin-right: 20px;
-          `}
-        >
-        Projects
-        </h2>
-      </Link>
-
-      <Link to={`/photography/`}>
-        <h2
-          css={css`
-            float: right;
-            margin-right: 20px;
-          `}
-        >
-        Photography
-        </h2>
-        <Link to={`/`}>
+      <div>
+      <Link to={`/`}>
         <h1
           css={css`
-            margin-bottom: ${rhythm(2)};
+            margin-bottom: ${rhythm(1)};
             display: inline-block;
             font-style: normal;
           `}
@@ -75,7 +51,13 @@ export default function Layout({ children }) {
           {data.site.siteMetadata.title}
         </h1>
       </Link>
-      </Link>
+      <ul style={{ listStyle: `none`, float: `right` }}>
+          <ListLink to="/about/">About</ListLink>
+          <ListLink to="/photography/">Photography</ListLink>
+          <ListLink to="/projects/">Projects</ListLink>
+        </ul>
+      </div>
+      
       {children}
 
       <div
@@ -83,11 +65,13 @@ export default function Layout({ children }) {
         margin: 0 auto;
         max-width: 1000px;
         padding-top: ${rhythm(1)};
+        float: left;
       `}
       >
-        <Link to="https://www.linkedin.com/in/bill-song-812500113/">
+      <Link to="https://www.linkedin.com/in/bill-song-812500113/">
           <FontAwesomeIcon icon={faLinkedin} size="2x"/>
-        </Link>
+      </Link>
+
       </div>
     </div>
   )
