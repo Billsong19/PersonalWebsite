@@ -26,12 +26,13 @@ export default function Projects({data}) {
                     fixed={data.file.childImageSharp.fixed}
                     alt=""
                 />
-                    {"SleepLog "} 
-                    <FontAwesomeIcon icon={faAndroid} size="1.5x"/>
-                    -
+                    {"  SleepLog    "}
                     <Link to="https://github.com/Billsong19/SleepLog/releases/tag/v0.2">
                         Download
                     </Link>
+                    <FontAwesomeIcon icon={faAndroid} size="1.5x"/>
+                    -
+                    
                 </h1>
                 <div>
                     {"SleepLog was born from the unhealthy sleep habits I saw in both my life and my friend's lives.\

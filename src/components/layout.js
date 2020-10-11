@@ -3,13 +3,19 @@ import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import { rhythm } from "../utils/typography"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to}>{props.children}</Link>
+    <Link to={props.to} style={{  textShadow: 'none' }}>{props.children}</Link>
+  </li>
+)
+
+const ListExtLink = props => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link href={props.href} style={{ backgroundImage: `none` }}>{props.children}</Link>
   </li>
 )
 
@@ -46,6 +52,7 @@ export default function Layout({ children }) {
             margin-bottom: ${rhythm(1)};
             display: inline-block;
             font-style: normal;
+            text-shadow: none;
           `}
         >
           {data.site.siteMetadata.title}
@@ -65,13 +72,18 @@ export default function Layout({ children }) {
         margin: 0 auto;
         max-width: 1000px;
         padding-top: ${rhythm(1)};
+       
         float: left;
       `}
       >
-      <Link to="https://www.linkedin.com/in/bill-song-812500113/">
-          <FontAwesomeIcon icon={faLinkedin} size="2x"/>
-      </Link>
 
+        <ul style={{ listStyle: `none`, float: `left` }}>
+          <ListExtLink href = "https://www.linkedin.com/in/   bill-song-812500113/">
+            <FontAwesomeIcon icon={faLinkedin} size="2x"/></ListExtLink>
+          <ListExtLink href = "https://github.com/Billsong19/">
+            <FontAwesomeIcon icon={faGithub} size="2x"/></ListExtLink>
+            
+        </ul>
       </div>
     </div>
   )
