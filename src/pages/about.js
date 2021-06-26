@@ -1,24 +1,8 @@
-// import React from "react"
-// import { Link } from "gatsby"
-// import Header from "../components/header"
-// import Layout from "../components/layout"
-
-// export default function About() {
-//   return (
-//     <Layout>
-//         <Link to="/contact/">Contact</Link>
-//         <Header headerText="About Gatsvy" bollos="Bollos"/>
-//         <Header bollos="bollos 2nd header"/>
-//         <p>Such wow. Very React.</p>
-//     </Layout>
-//   )
-// }
-
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { rhythm } from "../utils/typography"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 export default function About({ data }) {
   return (

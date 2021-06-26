@@ -3,9 +3,9 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import { rhythm } from "../utils/typography"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faAndroid} from "@fortawesome/free-brands-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 export default function Projects({data}) {
     console.log(data)
@@ -18,20 +18,21 @@ export default function Projects({data}) {
                     padding: ${rhythm(2)};
                     padding-top: ${rhythm(1)};
                     padding-botom: ${rhythm(1)};
+                    text-align: center;
                 `}
             >
                 <h1>
-                <Img
-                    className="headshot"
-                    fixed={data.file.childImageSharp.fixed}
-                    alt=""
-                />
-                    {"  SleepLog    "}
-                    <Link to="https://github.com/Billsong19/SleepLog/releases/tag/v0.2">
-                        Download
-                    </Link>
-                    <FontAwesomeIcon icon={faAndroid} size="1.5x"/>
-                    -
+                    <Img
+                        className="headshot"
+                        fixed={data.file.childImageSharp.fixed}
+                        alt=""
+                    />
+                    {"SleepLog (Android Only)"}                        
+                    <a  href="https://github.com/Billsong19/SleepLog">
+                         <FontAwesomeIcon icon={faGithub} size="1.5x"/>
+                    </a>
+                   
+                   
                     
                 </h1>
                 <div>
