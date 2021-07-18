@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-
 module.exports = {
   siteMetadata: {
     title: `Bill's Website`,
@@ -13,21 +12,21 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-          plugins: [
-              // Make CSS grids available
-              // without options
-              
-              // or
-              // with options
-              {
-                  resolve: "gatsby-remark-images-grid",
-                  options: {
-                      className: "myCustomClassName",
-                      gridGap: "20px",
-                      margin: "20px auto",
-                  },
-              },
-          ],
+        plugins: [
+          // Make CSS grids available
+          // without options
+
+          // or
+          // with options
+          {
+            resolve: "gatsby-remark-images-grid",
+            options: {
+              className: "myCustomClassName",
+              gridGap: "20px",
+              margin: "20px auto",
+            },
+          },
+        ],
       },
     },
 
@@ -46,7 +45,7 @@ module.exports = {
         path: `${__dirname}/assets/`,
       },
     },
-    
+
     `gatsby-plugin-emotion`,
     // `gatsby-plugin-netlify-cms`,
     {
