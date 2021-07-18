@@ -14,8 +14,13 @@ config.autoAddCss = false /* eslint-disable import/first */
 import { rhythm } from "../utils/typography"
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to} style={{ textShadow: "none" }}>
+  <li
+    style={{
+      display: `inline-block`,
+      marginRight: `1rem`,
+    }}
+  >
+    <Link to={props.to} style={{ textShadow: "none", backgroundImage: "none" }}>
       {props.children}
     </Link>
   </li>
@@ -67,6 +72,7 @@ export default function Layout({ children }) {
           to={`/`}
           css={css`
             float: left;
+            background-image: none;
           `}
         >
           <h1
