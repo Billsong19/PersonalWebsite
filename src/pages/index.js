@@ -9,16 +9,15 @@ export default function Home({ data }) {
   return (
     <Layout>
       <div>
-        Welcome to my site homie. This site is a work in progress: Follow the header links to see what I'm up to.
+        Welcome to my website. Follow the header links to see what I'm up to.
       </div>
     </Layout>
-    
   )
 }
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order:DESC}) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

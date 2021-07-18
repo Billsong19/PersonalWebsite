@@ -44,6 +44,7 @@ export default function Layout({ children }) {
   )
 
   return (
+    //entire site wrapper
     <div
       css={css`
         margin: 0 auto;
@@ -52,19 +53,31 @@ export default function Layout({ children }) {
         padding-top: ${rhythm(1)};
       `}
     >
-      <div>
-        <Link to={`/`}>
+      {/* top nav bar */}
+      <div
+        id="topnavbar"
+        css={css`
+          display: inline-block;
+          font-style: normal;
+          text-shadow: none;
+          width: 100%;
+        `}
+      >
+        <Link
+          to={`/`}
+          css={css`
+            float: left;
+          `}
+        >
           <h1
             css={css`
-              margin-bottom: ${rhythm(1)};
-              display: inline-block;
-              font-style: normal;
-              text-shadow: none;
+              margin-top: 0;
             `}
           >
             {data.site.siteMetadata.title}
           </h1>
         </Link>
+
         <ul style={{ listStyle: `none`, float: `right` }}>
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/photography/">Photography</ListLink>
