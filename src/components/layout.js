@@ -103,7 +103,7 @@ export default function Layout({ children }) {
         `}
       >
         <ul style={{ listStyle: `none`, float: `left` }}>
-          <ListExtLink href="https://www.linkedin.com/in/   bill-song-812500113/">
+          <ListExtLink href="https://www.linkedin.com/in/bill-song-812500113/">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </ListExtLink>
           <ListExtLink href="https://github.com/Billsong19/">
