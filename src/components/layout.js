@@ -3,6 +3,8 @@ import { css } from "@emotion/react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 // The following import prevents a Font Awesome icon server-side rendering bug,
 // where the icons flash from a very large icon down to a properly sized one:
@@ -13,6 +15,8 @@ config.autoAddCss = false /* eslint-disable import/first */
 
 import { rhythm } from "../utils/typography"
 
+import CV from "../../assets/siteAssets/BillSong-CV.pdf"
+
 const ListLink = props => (
   <li
     style={{
@@ -20,7 +24,11 @@ const ListLink = props => (
       marginRight: `1rem`,
     }}
   >
-    <Link to={props.to} style={{ textShadow: "none", backgroundImage: "none" }}>
+    <Link
+      to={props.to}
+      href={props.href}
+      style={{ textShadow: "none", backgroundImage: "none" }}
+    >
       {props.children}
     </Link>
   </li>
@@ -88,6 +96,7 @@ export default function Layout({ children }) {
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/photography/">Photography</ListLink>
           <ListLink to="/projects/">Projects</ListLink>
+          <ListLink href={CV}>CV</ListLink>
         </ul>
       </div>
 
@@ -103,6 +112,9 @@ export default function Layout({ children }) {
         `}
       >
         <ul style={{ listStyle: `none`, float: `left` }}>
+          <ListExtLink href="mailto: billsong19@hotmail.com">
+            <FontAwesomeIcon icon={faEnvelope} size="2x" />
+          </ListExtLink>
           <ListExtLink href="https://www.linkedin.com/in/bill-song-812500113/">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </ListExtLink>
