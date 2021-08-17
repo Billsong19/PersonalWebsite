@@ -9,4 +9,4 @@ Cool Features:
 * Responsive lightbox with large image serving  
 * Google Analytics
 
-Hosted on [billsong.nz](billsong.nz)
+Hosted on [billsong.nz](http://billsong.nz)
