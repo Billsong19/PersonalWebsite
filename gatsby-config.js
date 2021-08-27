@@ -69,7 +69,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+        name: `assets`,
+        path: `${__dirname}/assets/siteAssets/`,
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `photos`,
         path: `${__dirname}/assets/`,
       },
     },
@@ -82,6 +90,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

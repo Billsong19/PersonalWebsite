@@ -97,7 +97,7 @@ const options = {
 ` */
 export const query = graphql`
   {
-    allFile(filter: { extension: { regex: "/(jpg)/" } }) {
+    allFile(filter: { extension: {}, sourceInstanceName: { eq: "photos" } }) {
       edges {
         node {
           childImageSharp {

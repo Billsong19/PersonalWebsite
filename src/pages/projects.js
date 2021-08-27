@@ -1,82 +1,52 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React, { Component } from "react"
 import Layout from "../components/layout"
-import Img from "gatsby-image"
-import { rhythm } from "../utils/typography"
-import { css } from "@emotion/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import ProjectCard from "../components/projectCard"
+import { getImage } from "gatsby-plugin-image"
+
+import { graphql } from "gatsby"
 
 export default function Projects({ data }) {
-  console.log(data)
+  // console.log(data)
+  let thmbnails = data.allFile.edges
+  // console.log(thmbnails)
+  const images = []
+  for (let i = 0; i < thmbnails.length; i++) {
+    if (thmbnails[i].node.extension != "pdf") {
+      // console.log("non pdf found at index " + i)
+      // console.log(thmbnails[i].node.childImageSharp)
+      images.push(thmbnails[i].node.childImageSharp.gatsbyImageData)
+    }
+  }
+  // console.log(images)
+  // console.log(images[0])
   return (
     <Layout>
-      <div
-        css={css`
-          margin: 0 auto;
-          max-width: 1000px;
-          padding: ${rhythm(2)};
-          padding-top: ${rhythm(1)};
-          padding-botom: ${rhythm(1)};
-        `}
-      >
-        <h1>
-          <Img
-            className="headshot"
-            fixed={data.file.childImageSharp.fixed}
-            alt=""
-          />
-          {"SleepLog (Android)"}
-          <a href="https://github.com/Billsong19/SleepLog">
-            <FontAwesomeIcon icon={faGithub} size="1.5x" />
-          </a>
-        </h1>
-        <div>
-          {
-            "SleepLog was born from the unhealthy sleep habits I saw in both my life and my friend's lives.\
-                    Made worse by the COVID lockdowns of 2020, I set out to make a sleep assistance app that worked for my use case."
-          }
-        </div>
-
-        <img
-          css={css`
-            margin: 0 auto;
-            max-width: 500px;
-            width: 200px;
-            padding-top: ${rhythm(1)};
-            padding-botom: ${rhythm(1)};
-            padding-right: ${rhythm(1)};
-          `}
-          src="https://raw.githubusercontent.com/Billsong19/SleepLog/master/demo-images/main-menu.jpg"
-          alt="main menu"
-        />
-
-        <img
-          css={css`
-            margin: 0 auto;
-            max-width: 500px;
-            width: 200px;
-            padding-top: ${rhythm(1)};
-            padding-botom: ${rhythm(1)};
-            padding-left: ${rhythm(1)};
-          `}
-          src="https://raw.githubusercontent.com/Billsong19/SleepLog/master/demo-images/sleep-log.jpg"
-          alt="main menu"
-        />
-      </div>
+      <ProjectCard
+        destination="/sleeplog/"
+        header="SleepLog"
+        body="Android app that Logs and visualises sleep data to build and maintain healthy sleep habits."
+        img={images[0]}
+      />
+      <ProjectCard
+        destination="/"
+        header="Portfolio Website"
+        body="You're looking at it right now: A personal portfolio for photography and programming projects."
+        img={images[1]}
+      />
     </Layout>
   )
 }
 
 export const query = graphql`
   query {
-    file(
-      sourceInstanceName: { eq: "images" }
-      relativePath: { eq: "siteAssets/Sleep-LogIcon.png" }
-    ) {
-      childImageSharp {
-        fixed(width: 52, height: 52) {
-          ...GatsbyImageSharpFixed
+    allFile(filter: { extension: {}, sourceInstanceName: { eq: "assets" } }) {
+      edges {
+        node {
+          childImageSharp {
+            gatsbyImageData(width: 200)
+          }
+          name
+          extension
         }
       }
     }

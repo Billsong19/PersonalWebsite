@@ -1,0 +1,77 @@
+.image {
+  height: 100%;
+  width: 20vw;
+}
+.flexbox {
+  display: flex;
+  flex-flow: column wrap;
+  font-weight: bold;
+  text-align: center;
+  height: 20vh;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  align-content: flex-start;
+  /*overriding <a> styles from typography since <Link> turns into <a>*/
+  color: initial;
+  text-shadow: none;
+  background-image: none;
+}
+/*for all elements with parent "wrapper"*/
+.wrapper > * {
+  padding: 10px;
+  /* flex: 1 100%; */
+}
+
+.header {
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+/*
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside1 {
+  background: gold;
+}
+
+.aside2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+  .aside {
+    flex: 1 auto;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .main {
+    flex: 3 0px;
+  }
+  .aside1 {
+    order: 1;
+  }
+  .main {
+    order: 2;
+  }
+  .aside2 {
+    order: 3;
+  }
+  .footer {
+    order: 4;
+  }
+}
+
+body {
+  padding: 2em;
+} */
