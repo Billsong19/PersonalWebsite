@@ -8,19 +8,20 @@ export default function About({ data }) {
   return (
     <Layout>
       <div
+        //margin: auto centers it
         css={css`
-          margin: 0 auto;
+          margin: auto;
           max-width: 1000px;
           padding: ${rhythm(2)};
-          padding-top: ${rhythm(1)};
+          padding-top: 0;
           padding-botom: ${rhythm(1)};
         `}
       >
         <h1>About Me</h1>
         <div>
           {
-            "Welcome to my site, I'm Bill Song. I'm a 3rd year Software Engineering student at the University of Auckland\
-, and I made this website to give an overview of some the programming and photography I get up to in my spare time."
+            "I'm Bill Song. A 3rd year Software Engineering student at the University of Auckland\
+, I made this website to give an overview of some the programming and photography I get up to in my spare time."
           }
         </div>
       </div>
