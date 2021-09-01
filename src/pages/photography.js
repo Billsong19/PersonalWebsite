@@ -12,22 +12,7 @@ export default function Photography({ data }) {
   return (
     <Layout>
       <SimpleReactLightbox>
-        <h3>Hi, these are my photos</h3>
-        {/* <p>
-            {data.allFile.edges.map(({ node }, index) => (
-              <tr key={index}>
-                <td>{node.relativePath}</td>
-                <td>{node.prettySize}</td>
-                <td>{node.extension}</td>
-                <td>{node.birthTime}</td>
-              </tr>
-            ))}
-            </p> */}
-        {/* <Img
-                fluid={data.file.childImageSharp.fluid}
-                alt="Ngaruhoe"
-            /> */}
-
+        <h1>Photography</h1>
         <div
           css={css`
             column-count: 3;
@@ -71,30 +56,7 @@ const options = {
     overlayColor: "rgba(250,235,215,0.9)",
   },
 }
-/* export const query = graphql`
-    allFile(filter: {extension: {regex: "/(jpg)/"}, relativeDirectory: {}}) {
-      edges {
-        node {
-          relativeDirectory
-          name
-          relativePath
-        }
-      }
-    }
-  }
-  ` */
-/*  export const query = graphql`
-  {
-    file(relativePath: {eq: "dscf1200.jpeg"}) {
-      childImageSharp {
-        fluid(maxWidth: 2018, quality: 90){
-          base64
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-` */
+
 export const query = graphql`
   {
     allFile(filter: { extension: {}, sourceInstanceName: { eq: "photos" } }) {
