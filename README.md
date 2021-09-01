@@ -8,5 +8,6 @@ Stack:
 Cool Features:  
 * Responsive lightbox with large image serving  
 * Google Analytics
+* Netlify CMS for generating blog posts and organising media
 
 Hosted on [billsong.nz](http://billsong.nz)
