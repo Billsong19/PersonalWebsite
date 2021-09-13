@@ -32,10 +32,26 @@ export default function SleepLog({ data }) {
           </a>
         </h1>
         <div>
-          {
-            "SleepLog was born from the unhealthy sleep habits I saw in both my life and my friend's lives.\
-                    Made worse by the COVID lockdowns of 2020, I set out to make a sleep assistance app that worked for my use case."
-          }
+          <p>
+            SleepLog was born from the unhealthy sleep habits I saw in both my
+            life and my friend's lives. Made worse by the COVID lockdowns of
+            2020, I set out to make a sleep assistance app that worked for my
+            use case.
+          </p>
+          <p>
+            I started this about half-way through my first university OOP
+            course, and while the Java syntax was familiar, working with a huge
+            SDK like the Java Android SDK came with quite the learning curve. It
+            was my first time conceiving an idea from scratch, so I learnt XML
+            and some CSS to put together the GUI. In my migration to an SQLite
+            database, I also had to learn some SQL.
+          </p>
+          <p>
+            Currently I'm in the process of migrating the view controller
+            architecture, to clean up some of the technical debt I've
+            accumulated on that front. After that, the graphs and data
+            visualisations will be ready to throw in!
+          </p>
         </div>
 
         <img
