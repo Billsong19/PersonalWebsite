@@ -21,7 +21,7 @@ export default function SleepLog({ data }) {
         <h1>
           <img
             className="headshot"
-            image={data.file.childImageSharp.fixed}
+            // image={data.file.childImageSharp.fixed}
             alt=""
           />
           {"SleepLog (Android)"}

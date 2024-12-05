@@ -20,7 +20,7 @@ export default function About({ data }) {
         <h1>About Me</h1>
         <div>
           {
-            "I'm Bill Song. I love technology(not all), snowboarding, music, photography, cool looking mountains, \
+            "I'm Bill Song. I'm based in the beautiful town of Wanaka, New Zealand. I love technology(not all technology though), snowboarding, music, photography, cool looking mountains, \
             cool looking clouds, acquiring ancestral knowledge, and daydreaming. This website serves as a scrapbook \
             and sandbox of sorts for various pursuits and various programming projects. \
             Have a look at my photography I think it's quite neat!"

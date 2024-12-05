@@ -1,7 +1,6 @@
-import React from "react"
-import { useState } from "react"
+import React, { useEffect, useState, useLocation } from "react"
 import { css } from "@emotion/react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faShuffle } from "@fortawesome/free-solid-svg-icons"
@@ -54,6 +53,11 @@ function getRandNickname() {
 //functional component, wrap all pages on the website with layout.
 export default function Layout({ children }) {
   const [nickname, setNickName] = useState("Bill")
+  const location = useLocation;  // Hook to get the current location
+  useEffect(() => {
+    setNickName(getRandNickname())
+  }, [location])
+
   return (
     //entire site wrapper
     <div
