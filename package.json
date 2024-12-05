@@ -29,6 +29,7 @@
     "masonry-layout": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sharp": "^0.33.5",
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
