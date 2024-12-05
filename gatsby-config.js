@@ -8,6 +8,9 @@ module.exports = {
   siteMetadata: {
     title: `Bill's Website`,
   },
+  flags: {
+    DEV_SSR: true
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
