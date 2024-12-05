@@ -7,7 +7,6 @@ import { rhythm } from "../utils/typography"
 import { css } from "@emotion/react"
 
 export default function Home({ data }) {
-  console.log(data)
   return (
     <Layout>
       <div
@@ -19,10 +18,7 @@ export default function Home({ data }) {
           padding-botom: ${rhythm(1)};
         `}
       >
-        Welcome to my website. Follow the header links to see what I'm up to.
-        <br></br>
-        The photography page is fully responsive(it works on a phone), but
-        projects is not(yet).
+
       </div>
     </Layout>
   )

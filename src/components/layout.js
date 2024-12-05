@@ -47,7 +47,6 @@ const ListExtLink = props => (
 )
 
 function getRandNickname() {
-  console.log(nicknames)
   const nicknamesArr = nicknames['nicknames']
   return nicknamesArr[Math.floor(Math.random() * nicknamesArr.length)]
 }

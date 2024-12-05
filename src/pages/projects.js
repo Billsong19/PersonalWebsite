@@ -6,19 +6,13 @@ import { getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 
 export default function Projects({ data }) {
-  // console.log(data)
   let thmbnails = data.allFile.edges
-  // console.log(thmbnails)
   const images = []
   for (let i = 0; i < thmbnails.length; i++) {
     if (thmbnails[i].node.extension != "pdf") {
-      // console.log("non pdf found at index " + i)
-      // console.log(thmbnails[i].node.childImageSharp)
       images.push(thmbnails[i].node.childImageSharp.gatsbyImageData)
     }
   }
-  // console.log(images)
-  // console.log(images[0])
   return (
     <Layout>
       <ProjectCard

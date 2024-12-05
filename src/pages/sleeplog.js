@@ -8,7 +8,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function SleepLog({ data }) {
-  console.log(data)
   return (
     <Layout>
       <div
