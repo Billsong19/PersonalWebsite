@@ -38,27 +38,6 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          // Make CSS grids available
-          // without options
-
-          // or
-          // with options
-          {
-            resolve: "gatsby-remark-images-grid",
-            options: {
-              className: "myCustomClassName",
-              gridGap: "20px",
-              margin: "20px auto",
-            },
-          },
-        ],
-      },
-    },
-
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
@@ -88,22 +67,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-        ],
       },
     },
   ],

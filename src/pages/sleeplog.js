@@ -5,7 +5,6 @@ import { rhythm } from "../utils/typography"
 import { css } from "@emotion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function SleepLog({ data }) {
   return (
@@ -20,7 +19,7 @@ export default function SleepLog({ data }) {
         `}
       >
         <h1>
-          <GatsbyImage
+          <img
             className="headshot"
             image={data.file.childImageSharp.fixed}
             alt=""
@@ -83,15 +82,15 @@ export default function SleepLog({ data }) {
   )
 }
 
-export const query = graphql`
-  query {
-    file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "Sleep-LogIcon.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query {
+//     file(
+//       sourceInstanceName: { eq: "assets" }
+//       relativePath: { eq: "Sleep-LogIcon.png" }
+//     ) {
+//       childImageSharp {
+//         gatsbyImageData
+//       }
+//     }
+//   }
+// `

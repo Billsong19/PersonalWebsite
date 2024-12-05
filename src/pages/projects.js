@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Layout from "../components/layout"
 import ProjectCard from "../components/projectCard"
-import { getImage } from "gatsby-plugin-image"
 
 import { graphql } from "gatsby"
 
@@ -31,18 +30,18 @@ export default function Projects({ data }) {
   )
 }
 
-export const query = graphql`
-  query {
-    allFile(filter: { extension: {}, sourceInstanceName: { eq: "assets" } }) {
-      edges {
-        node {
-          childImageSharp {
-            gatsbyImageData(width: 200)
-          }
-          name
-          extension
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query {
+//     allFile(filter: { extension: {}, sourceInstanceName: { eq: "assets" } }) {
+//       edges {
+//         node {
+//           childImageSharp {
+//             gatsbyImageData(width: 200)
+//           }
+//           name
+//           extension
+//         }
+//       }
+//     }
+//   }
+// `
