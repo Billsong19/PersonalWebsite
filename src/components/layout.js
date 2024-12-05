@@ -1,9 +1,10 @@
 import React from "react"
+import { useState } from "react"
 import { css } from "@emotion/react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope, faShuffle } from "@fortawesome/free-solid-svg-icons"
 
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 // The following import prevents a Font Awesome icon server-side rendering bug,
@@ -15,7 +16,10 @@ config.autoAddCss = false /* eslint-disable import/first */
 
 import { rhythm } from "../utils/typography"
 
-import CV from "../../assets/siteAssets/BillSong-CV.pdf"
+import nicknames from "../../assets/siteAssets/nicknames.json"
+import CV from "../../assets/siteAssets/Bill-Song-CV.pdf"
+//TODO pull cv dynamically from github
+//TODO option to view in both HTML and pdf.
 
 const ListLink = props => (
   <li
@@ -42,20 +46,15 @@ const ListExtLink = props => (
   </li>
 )
 
+function getRandNickname() {
+  console.log(nicknames)
+  const nicknamesArr = nicknames['nicknames']
+  return nicknamesArr[Math.floor(Math.random() * nicknamesArr.length)]
+}
+
 //functional component, wrap all pages on the website with layout.
 export default function Layout({ children }) {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  )
-
+  const [nickname, setNickName] = useState("Bill")
   return (
     //entire site wrapper
     <div
@@ -76,26 +75,27 @@ export default function Layout({ children }) {
           width: 100%;
         `}
       >
-        <Link
-          to={`/`}
-          css={css`
-            float: left;
-            background-image: none;
-          `}
-        >
-          <h1
-            css={css`
-              margin-top: 0;
-            `}
+        <div style={{ float: "left", display: "flex" }}>
+          <FontAwesomeIcon style={{ height: `${rhythm(1.5)}`, marginRight: `${rhythm(0.5)}` }} icon={faShuffle} onClick={() => { setNickName(getRandNickname()) }}></FontAwesomeIcon>
+          <Link
+            to={`/`}
+            style={{
+              backgroundImage: "none"
+            }}
           >
-            {data.site.siteMetadata.title}
-          </h1>
-        </Link>
+            <h1
+              style={{ marginTop: 0 }}
+            >
+              {nickname}
+            </h1>
+          </Link>
+        </div>
+
 
         <ul style={{ listStyle: `none`, float: `right` }}>
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/photography/">Photography</ListLink>
-          <ListLink to="/projects/">Projects</ListLink>
+          {/* <ListLink to="/projects/">Projects</ListLink> */}
           <ListLink href={CV}>CV</ListLink>
         </ul>
       </div>
@@ -112,7 +112,7 @@ export default function Layout({ children }) {
         `}
       >
         <ul style={{ listStyle: `none`, float: `left` }}>
-          <ListExtLink href="mailto: billsong19@hotmail.com">
+          <ListExtLink href="mailto: work@billsong.nz">
             <FontAwesomeIcon icon={faEnvelope} size="2x" />
           </ListExtLink>
           <ListExtLink href="https://www.linkedin.com/in/bill-song-812500113/">
@@ -123,6 +123,6 @@ export default function Layout({ children }) {
           </ListExtLink>
         </ul>
       </div>
-    </div>
+    </div >
   )
 }
