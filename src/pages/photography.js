@@ -1,5 +1,5 @@
 import React from "react"
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import * as cheerio from 'cheerio';
 import Layout from "../components/layout"
 import LightGallery from 'lightgallery/react';
@@ -20,7 +20,6 @@ const IMMICH_ALBUM_ID = "5so5YNUcS9i7_1NeER6VrXIVhzIwiHELA_bz-NoGocNep720opKNLdV
 const IMMICH_ALBUM_PATH = `share/${IMMICH_ALBUM_ID}`
 
 export default function Photography() {
-  const ref = useRef(null)
   const [lightGallery, setLightGallery] = useState([]);
   const [masonryInstance, setMasonryInstance] = useState(null);
 
@@ -105,8 +104,7 @@ export default function Photography() {
 }
 
 function extractImgId(albumId, input) {
-  console.log(input)
-  const regex = `${albumId}\/[^\/]+\/`; // Capture everything up to and including '/bar/*/'
+  const regex = `${albumId}\/[^\/]+\/`; // Match albumId and the following imageId after the first "/" and before the second "/"
   const match = input.match(regex)  // Find the match
   if (match) {
     return match[0].split("/")[1];  // Return the captured substring
