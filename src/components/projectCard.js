@@ -1,5 +1,4 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import * as cardstyles from "../styles/card.module.css"
 import { Link } from "gatsby"
 
@@ -7,7 +6,7 @@ export default function ProjectCard(props) {
   {
     return (
       <Link className={cardstyles.flexbox} to={props.destination}>
-        <GatsbyImage
+        <img
           className={cardstyles.image}
           image={props.img}
           alt="ting"
