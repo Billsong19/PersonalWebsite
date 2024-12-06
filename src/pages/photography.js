@@ -28,7 +28,7 @@ export default function Photography() {
     //fetch data from immich host.
     const fetchData = async () => {
       try {
-        const albumUri = `http://${IMMICH_PROXY_HOST}/${IMMICH_ALBUM_PATH}`
+        const albumUri = `https://${IMMICH_PROXY_HOST}/${IMMICH_ALBUM_PATH}`
         const response = await fetch(
           albumUri
         );
@@ -44,7 +44,7 @@ export default function Photography() {
             }
           })
           const elements = paths.map((path, index) => {
-            const imgURI = `http://${IMMICH_PROXY_HOST}/${path}`
+            const imgURI = `https://${IMMICH_PROXY_HOST}/${path}`
             return (
               <a href={`${imgURI}preview`} data-download-url={`${imgURI}original`} key={index} className='gallery-item lg-item' styles={{ margin: '10 10 10 10' }}>
                 <img src={`${imgURI}preview`} className='img-responsive' />
