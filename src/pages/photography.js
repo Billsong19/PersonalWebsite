@@ -35,19 +35,19 @@ export default function Photography() {
         if (response.ok) {
           const html = await response.text(); // Convert the response to text
           const $ = cheerio.load(html); // Load the HTML into cheerio
-          var paths = []
+          var imgIds = []
           $('#lightgallery a').each((index, element) => {
             const href = $(element).attr('href')
-            const imgPath = extractImgPath(IMMICH_ALBUM_ID, href)
-            if (imgPath) {
-              paths.push(imgPath)
+            const imgId = extractImgId(IMMICH_ALBUM_ID, href)
+            if (imgId) {
+              imgIds.push(imgId)
             }
           })
-          const elements = paths.map((path, index) => {
-            const imgURI = `https://${IMMICH_PROXY_HOST}/${path}`
+          const elements = imgIds.map((id, index) => {
+            const imgURI = `https://${IMMICH_PROXY_HOST}/share/photo/${IMMICH_ALBUM_ID}/${id}`
             return (
-              <a href={`${imgURI}preview`} data-download-url={`${imgURI}original`} key={index} className='gallery-item lg-item' styles={{ margin: '10 10 10 10' }}>
-                <img src={`${imgURI}preview`} className='img-responsive' />
+              <a href={`${imgURI}/preview`} data-download-url={`${imgURI}/original`} key={index} className='gallery-item lg-item' styles={{ margin: '10 10 10 10' }}>
+                <img src={`${imgURI}/preview`} className='img-responsive' />
               </a>
             )
           });
@@ -104,12 +104,12 @@ export default function Photography() {
   );
 }
 
-function extractImgPath(albumId, input) {
-  const regex = `.*\/${albumId}\/[^\/]+\/`; // Capture everything up to and including '/bar/*/'
-  const match = input.match(regex);  // Find the match
-
+function extractImgId(albumId, input) {
+  console.log(input)
+  const regex = `${albumId}\/[^\/]+\/`; // Capture everything up to and including '/bar/*/'
+  const match = input.match(regex)  // Find the match
   if (match) {
-    return match[0];  // Return the captured substring
+    return match[0].split("/")[1];  // Return the captured substring
   } else {
     return null;  // If no match, return null
   }
