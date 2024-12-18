@@ -51,7 +51,7 @@ function getRandNickname() {
 }
 
 //functional component, wrap all pages on the website with layout.
-export default function Layout({ children }) {
+export default function Layout({ id, children }) {
   const [nickname, setNickName] = useState("Bill")
   const location = useLocation;  // Hook to get the current location
   useEffect(() => {
@@ -61,12 +61,13 @@ export default function Layout({ children }) {
   return (
     //entire site wrapper
     <div
-      css={css`
-        margin: 0 auto;
+      id={id}
+    // css={css`
+    //   margin: 0 auto;
 
-        padding: ${rhythm(0.5)};
-        padding-top: ${rhythm(1)};
-      `}
+    //   padding: ${rhythm(0.5)};
+    //   padding-top: ${rhythm(1)};
+    // `}
     >
       {/* top nav bar */}
       <div
@@ -83,7 +84,8 @@ export default function Layout({ children }) {
           <Link
             to={`/`}
             style={{
-              backgroundImage: "none"
+              backgroundImage: "none",
+              color: "inherit"
             }}
           >
             <h1
@@ -105,27 +107,26 @@ export default function Layout({ children }) {
 
       {children}
 
-      <div
+      {/* <div
         css={css`
           margin: 0 auto;
           max-width: 1000px;
           padding-top: ${rhythm(1)};
-
           float: left;
         `}
-      >
-        <ul style={{ listStyle: `none`, float: `left` }}>
-          <ListExtLink href="mailto: work@billsong.nz">
-            <FontAwesomeIcon icon={faEnvelope} size="2x" />
-          </ListExtLink>
-          <ListExtLink href="https://www.linkedin.com/in/bill-song-812500113/">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-          </ListExtLink>
-          <ListExtLink href="https://github.com/Billsong19/">
-            <FontAwesomeIcon icon={faGithub} size="2x" />
-          </ListExtLink>
-        </ul>
-      </div>
-    </div >
+      > */}
+      <ul style={{ backgroundColor: "inherit", listStyle: `none`, float: `left` }}>
+        <ListExtLink href="mailto: work@billsong.nz">
+          <FontAwesomeIcon icon={faEnvelope} size="2x" />
+        </ListExtLink>
+        <ListExtLink href="https://www.linkedin.com/in/bill-song-812500113/">
+          <FontAwesomeIcon icon={faLinkedin} size="2x" />
+        </ListExtLink>
+        <ListExtLink href="https://github.com/Billsong19/">
+          <FontAwesomeIcon icon={faGithub} size="2x" />
+        </ListExtLink>
+      </ul>
+    </div>
+    // </div >
   )
 }

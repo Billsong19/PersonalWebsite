@@ -9,6 +9,9 @@ fairyGateTheme.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(0.5),
   },
 })
+delete fairyGateTheme.bodyColor
+delete fairyGateTheme.headerColor
+
 const typography = new Typography(fairyGateTheme)
 
 export const { scale, rhythm, options } = typography
